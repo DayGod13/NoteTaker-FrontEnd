@@ -29,6 +29,10 @@ getNotes = () => {
   .catch((err) => console.log(err.response.data) );
 }
 
+getNote = () => {
+  console.log("Clicked!");
+}
+
 render () {
   const { showNote, notes } = this.state;
 
@@ -42,6 +46,7 @@ render () {
         <List 
           getNotes={this.getNotes}
           notes={notes} 
+          getNote={this.getNote}
           /> }
     </div>
   );
