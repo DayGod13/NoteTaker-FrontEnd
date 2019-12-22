@@ -36,8 +36,16 @@ getNote = (id) => {
   .catch((err) => console.log(err.response.data) );
 }
 
-submitNote = (data) => {
-  axios.post(urlFor('notes'), data)
+performSubmissionRequest = (data, id) => {
+  if (id) {
+    return axios.patch(urlFor(`notes/${id}`), data);
+  } else {
+    return axios.post(urlFor('notes'), data);
+  }
+}
+
+submitNote = (data, id) => {
+  this.performSubmissionRequest(data, id)
   .then((res) => console.log(res) )
   .catch((err) => console.log(err.response.data) );
 }
