@@ -4,9 +4,15 @@ class Flash extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-            this.props.resetError
+            this.props.resetError()
         }, 2000);
     }
+
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //       this.props.resetError();
+    //     }, 2000);
+    //   }
 
     render() {
         const { error } = this.props;
